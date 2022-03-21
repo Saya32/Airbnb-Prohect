@@ -20,7 +20,7 @@ public class PropertiesWindow extends Windows{
     public PropertiesWindow(String borough)
     {
         this.borough = borough;
-        listOfProperties(WelcomeWindow.lowerPrice,WelcomeWindow.upperPrice);
+        listOfProperties(ApplicationWindow.lowerPrice,ApplicationWindow.upperPrice);
         buildInitialWindow();
     }
 

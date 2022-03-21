@@ -6,7 +6,7 @@ import javax.swing.*;
 /*
 This class stands for the first window that the user sees when launching the application. In this window the user has to create an account and then log in to the system with that account in order to be able to use the application.
 It inherits from the class Windows which itself inherits from JPanel because each instance of AccountWindow class is itself a JPanel contained into the main window (GUI.mainFrame in the class GUI) , and containing other panels.
-This statement is valid for all the classes standing for windows oif the application : MapWindow, StatisticsWindow , WelcomeWindow and PropertiesWinow
+This statement is valid for all the classes standing for windows oif the application : MapWindow, StatisticsWindow , ApplicationWindow and PropertiesWinow
  */
 
 public class AccountWindow extends Windows {
@@ -109,9 +109,9 @@ public class AccountWindow extends Windows {
     private void goToWelcomeScreen()
     {
 
-        GUI.ww = new WelcomeWindow(); // The generated welcome window is assigned to the welcome window field of the GUI class, which is the welcome window that the user will see all along.
+        GUI.awn = new ApplicationWindow(); // The generated welcome window is assigned to the welcome window field of the GUI class, which is the welcome window that the user will see all along.
         GUI.mainFrame.remove(GUI.aw);
-        GUI.mainFrame.add(GUI.ww);
+        GUI.mainFrame.add(GUI.awn);
         GUI.mainFrame.setPreferredSize(new Dimension(1200,1000));
         GUI.mainFrame.pack();
 

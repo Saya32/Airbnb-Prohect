@@ -33,7 +33,7 @@ public class MapWindow extends Windows {
 
         // Displays the map of London and adds it to the mapPanel.
         try {
-            BufferedImage bimg = ImageIO.read(new File("london-borough-map.jpg")); // extracts the file containing the map of london
+            BufferedImage bimg = ImageIO.read(new File("boroughs.jpg")); // extracts the file containing the map of london
             ImageIcon londonMap = new ImageIcon(); //
             londonMap.setImage(bimg); // sets the image of the imageIcon to be the map of London.
             mapLabel = new JLabel(londonMap);
@@ -67,7 +67,7 @@ public class MapWindow extends Windows {
         bottomPanel.setBackground(Color.WHITE);
 
         coordinates();
-        displayHouseIcons(WelcomeWindow.lowerPrice, WelcomeWindow.upperPrice);
+        displayHouseIcons(ApplicationWindow.lowerPrice, ApplicationWindow.upperPrice);
     }
 
 
@@ -168,7 +168,7 @@ public class MapWindow extends Windows {
     private void goBackToWelcome()
     {
         GUI.mainFrame.remove(GUI.mw);
-        GUI.mainFrame.add(GUI.ww);
+        GUI.mainFrame.add(GUI.awn);
         GUI.mainFrame.revalidate();
         GUI.mainFrame.repaint();
     }

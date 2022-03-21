@@ -4,7 +4,7 @@ import java.awt.*;
 This class creates the main window holding all the other windows the app and each instance of this class runs the app.
  */
 public class GUI {
-    public static WelcomeWindow ww ; // The welcome window displayed all along the running of the app.
+    public static ApplicationWindow awn ; // The welcome window displayed all along the running of the app.
     public static JFrame mainFrame; // The main window holding all the others windows.
     public static MapWindow mw; // The map window displayed all along the running of the app.
     public static StatisticsWindow sw; // The statistics window displayed all along the running of the app.

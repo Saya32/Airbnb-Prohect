@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 // Super class called Windows from which each window of the application inherits. This class extends JPanel as well.
-public class MainWindows extends JPanel{
+public class Windows extends JPanel{
 
     // the database containing all the Airbnb properties of London and their information.
     protected final ArrayList<AirbnbListing> database;
@@ -13,7 +13,7 @@ public class MainWindows extends JPanel{
             "Kensington and Chelsea","City of London","Westminster","Camden","Tower Hamlets", "Islington", "Hackney","Haringey",
             "Newham","Barking and Dagenham"};
 
-    public MainWindows()
+    public Windows()
     {
         AirbnbDataLoader dl = new AirbnbDataLoader();
         database = dl.load();

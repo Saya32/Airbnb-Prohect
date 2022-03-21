@@ -8,7 +8,7 @@ import java.io.*;
  * This class stands for the second window that the user sees , called welcome window. On this window, the user chooses a price range.
  * By pressing a button the user will be brought to the map window , displaying a map of London showing the properties matching the selected price range.
  */
-public class ApplicationWindow extends Windows {
+public class WelcomeWindow extends Windows {
     private String[] fromPrices, toPrices;
     public static int upperPrice, lowerPrice; // Variables that store the upper and lower prices chosen by the customer.
     private JComboBox from,to;

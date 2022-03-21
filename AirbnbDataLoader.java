@@ -10,7 +10,7 @@ import java.net.URISyntaxException;
 
 public class AirbnbDataLoader {
  
-    /** 
+    /**
      * Return an ArrayList containing the rows in the AirBnB London data set csv file.
      */
     public ArrayList<AirbnbListing> load() {

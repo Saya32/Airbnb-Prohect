@@ -29,9 +29,6 @@ public class Map extends JPanel{
             londonMap.setImage(bimg); // sets the image of the imageIcon to be the map of London.
             mapLabel = new JLabel(londonMap);
             mapPanel.add(mapLabel);
-            
-            
-
 
         } catch (IOException exc) {
             return;
@@ -63,4 +60,18 @@ public class Map extends JPanel{
         // displayHouseIcons(WelcomeWindow.lowerPrice, WelcomeWindow.upperPrice);
     }
     
+    private void goBackToWelcome() {
+        mainWindow.frame.remove(mainWindow.map);
+        mainWindow.frame.add(mainWindow.welcome);
+        mainWindow.frame.revalidate();
+        mainWindow.frame.repaint();
+    }
+    
+    private void goToStatistics() {
+        mainWindow.stats = new Statistics();
+        mainWindow.frame.remove(mainWindow.map);
+        mainWindow.frame.add(mainWindow.stats);
+        mainWindow.frame.revalidate();
+        mainWindow.frame.repaint();
+    }
 }

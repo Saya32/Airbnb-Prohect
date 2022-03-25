@@ -8,9 +8,7 @@ import java.util.*;
 public class Map extends JPanel{
     private JPanel mapPanel; // the panel that holds the map.
     private JLabel mapLabel; // the map itself
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
+
     public Map() {
         buildMapWindow();
     }
@@ -63,4 +61,4 @@ public class Map extends JPanel{
         // displayHouseIcons(WelcomeWindow.lowerPrice, WelcomeWindow.upperPrice);
     }
     
- 
+}

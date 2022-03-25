@@ -10,8 +10,11 @@ import javax.swing.*;
 public class mainWindow
 {
     // instance variables
-    private JFrame frame;
-    private welcomePanel welcome;
+    public static JFrame frame;
+    public static welcomePanel welcome;
+    public static Map map;
+    public static Statistics stats;
+    
 
     /**
      * Create the main window and show it on screen.
@@ -20,7 +23,12 @@ public class mainWindow
     {
         makeFrame();
     }
-
+    
+        public static void main(String[] args)
+    {
+        mainWindow main = new mainWindow();
+    }
+    
     /**
      * Creates the main window and starts the user on the welcome panel.
      */

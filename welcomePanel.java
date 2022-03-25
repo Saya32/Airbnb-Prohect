@@ -81,6 +81,7 @@ public class welcomePanel extends JPanel
         toBox.addActionListener(e -> checkValid(fromBox, toBox));
         
         // add button functionality here to send the user to the next panels.
+        rightButton.addActionListener(e-> displayMap());
     }
     
     /**
@@ -117,4 +118,14 @@ public class welcomePanel extends JPanel
             rightButton.setEnabled(false);
         }
     }
+    
+    private void displayMap() {
+        mainWindow.map = new Map();
+        mainWindow.frame.remove(mainWindow.welcome);
+        mainWindow.frame.add(mainWindow.map);
+        mainWindow.frame.revalidate();
+        mainWindow.frame.repaint();
+
+    }
+    
 }

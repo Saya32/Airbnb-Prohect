@@ -8,11 +8,12 @@ import java.util.*;
 public class Map extends JPanel{
     private JPanel mapPanel; // the panel that holds the map.
     private JLabel mapLabel; // the map itself
-    
+
     public Map() {
         buildMapWindow();
 
     }
+
     private void buildMapWindow()
 
     {
@@ -22,7 +23,6 @@ public class Map extends JPanel{
         JPanel bottomPanel = new JPanel(new BorderLayout());
         mapPanel = new JPanel();
 
-
         // Displays the map of London and adds it to the mapPanel.
         try {
             BufferedImage bimg = ImageIO.read(new File("boroughs.jpg")); // extracts the file containing the map of london
@@ -30,7 +30,6 @@ public class Map extends JPanel{
             londonMap.setImage(bimg); // sets the image of the imageIcon to be the map of London.
             mapLabel = new JLabel(londonMap);
             mapPanel.add(mapLabel);
-
 
         } catch (IOException exc) {
             return;
@@ -61,14 +60,14 @@ public class Map extends JPanel{
         // coordinates();
         // displayHouseIcons(WelcomeWindow.lowerPrice, WelcomeWindow.upperPrice);
     }
-    
+
     private void goBackToWelcome()
     {
         mainWindow.frame.remove(mainWindow.map);
         mainWindow.frame.add(mainWindow.welcome);
         mainWindow.frame.revalidate();
         mainWindow.frame.repaint();
-    
+
     }
 
     // Allows the user to go to the statistics window.

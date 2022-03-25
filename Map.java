@@ -12,7 +12,6 @@ public class Map extends JPanel{
     public Map() {
         buildMapWindow();
     }
-
     private void buildMapWindow()
 
     {
@@ -21,6 +20,7 @@ public class Map extends JPanel{
         // Initialises all the panels.
         JPanel bottomPanel = new JPanel(new BorderLayout());
         mapPanel = new JPanel();
+
 
         // Displays the map of London and adds it to the mapPanel.
         try {
@@ -31,6 +31,7 @@ public class Map extends JPanel{
             mapPanel.add(mapLabel);
             
             
+
 
         } catch (IOException exc) {
             return;
@@ -61,23 +62,5 @@ public class Map extends JPanel{
         // coordinates();
         // displayHouseIcons(WelcomeWindow.lowerPrice, WelcomeWindow.upperPrice);
     }
-
-    private void goBackToWelcome()
-    {
-        mainWindow.frame.remove(mainWindow.map);
-        mainWindow.frame.add(mainWindow.welcome);
-        mainWindow.frame.revalidate();
-        mainWindow.frame.repaint();
-
-    }
-
-    // Allows the user to go to the statistics window.
-    private void goToStatistics()
-    {
-        mainWindow.stats = new Statistics();
-        mainWindow.frame.remove(mainWindow.map);
-        mainWindow.frame.add(mainWindow.stats);
-        mainWindow.frame.revalidate();
-        mainWindow.frame.repaint();
-    }
+    
 }

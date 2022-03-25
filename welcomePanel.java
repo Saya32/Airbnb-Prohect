@@ -125,7 +125,6 @@ public class welcomePanel extends JPanel
         mainWindow.frame.add(mainWindow.map);
         mainWindow.frame.revalidate();
         mainWindow.frame.repaint();
-
     }
     
 }

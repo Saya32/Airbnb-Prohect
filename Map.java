@@ -24,11 +24,13 @@ public class Map extends JPanel{
 
         // Displays the map of London and adds it to the mapPanel.
         try {
-            BufferedImage bimg = ImageIO.read(new File("boroughs.jpg")); // extracts the file containing the map of london
+            BufferedImage bimg = ImageIO.read(new File("borough1.png")); // extracts the file containing the map of london
             ImageIcon londonMap = new ImageIcon(); //
             londonMap.setImage(bimg); // sets the image of the imageIcon to be the map of London.
             mapLabel = new JLabel(londonMap);
             mapPanel.add(mapLabel);
+            
+            
 
         } catch (IOException exc) {
             return;

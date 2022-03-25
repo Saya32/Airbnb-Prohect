@@ -11,7 +11,6 @@ public class Map extends JPanel{
 
     public Map() {
         buildMapWindow();
-
     }
 
     private void buildMapWindow()

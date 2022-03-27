@@ -6,11 +6,14 @@ import java.io.*;
 import java.util.*;
 
 public class Map extends JPanel{
+    
+    private HashMap<String, ArrayList<Integer>> coordinates;
     private JPanel mapPanel; // the panel that holds the map.
     private JLabel mapLabel; // the map itself
 
     public Map() {
         buildMapWindow();
+        coordinates = new HashMap<>();
     }
     private void buildMapWindow()
 
@@ -24,7 +27,7 @@ public class Map extends JPanel{
 
         // Displays the map of London and adds it to the mapPanel.
         try {
-            BufferedImage bimg = ImageIO.read(new File("borough1.png")); // extracts the file containing the map of london
+            BufferedImage bimg = ImageIO.read(new File("borough3.png")); // extracts the file containing the map of london
             ImageIcon londonMap = new ImageIcon(); //
             londonMap.setImage(bimg); // sets the image of the imageIcon to be the map of London.
             mapLabel = new JLabel(londonMap);

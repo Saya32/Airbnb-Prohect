@@ -116,7 +116,17 @@ public class welcomePanel extends JPanel
         } else {
             leftButton.setEnabled(false);
             rightButton.setEnabled(false);
+            showInvalidRangeMessage();
         }
+    }
+    
+    /**
+     * Shows an error message if the user has inputted an invalid price range.
+     */
+    private void showInvalidRangeMessage()
+    {
+        JOptionPane.showMessageDialog(null, "The price range you have selected is"
+        + " invalid. Please try again.");
     }
     
     private void displayMap() {

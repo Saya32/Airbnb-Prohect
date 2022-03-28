@@ -120,7 +120,6 @@ public class welcomePanel extends JPanel
         }
     }
 
-    
     /**
      * Shows an error message if the user has inputted an invalid price range.
      */
@@ -130,7 +129,6 @@ public class welcomePanel extends JPanel
         + " invalid. Please try again.");
     }
     
-
     private void displayMap() {
         mainWindow.map = new Map();
         mainWindow.frame.remove(mainWindow.welcome);

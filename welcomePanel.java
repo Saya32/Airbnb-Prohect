@@ -128,7 +128,8 @@ public class welcomePanel extends JPanel
         JOptionPane.showMessageDialog(null, "The price range you have selected is"
         + " invalid. Please try again.");
     }
-   
+
+
     private void displayMap() {
         mainWindow.map = new Map();
         mainWindow.frame.remove(mainWindow.welcome);

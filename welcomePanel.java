@@ -4,8 +4,8 @@ import javax.swing.*;
 /**
  * The first panel that the user will see when they begin the program.
  *
- * @author: Sayaka, Janet, Apria and Jayden
- * @version 22.03.2022
+ * @author (your name)
+ * @version (a version number or a date)
  */
 public class welcomePanel extends JPanel
 {
@@ -51,7 +51,7 @@ public class welcomePanel extends JPanel
 
         // adds the welcome message.
         intro = new JLabel("<html>Welcome to the AirBnB property viewer.<br/>"
-            + "Use the drop-down menus at the top to select a price range " 
+            + "Use the drop-down menus at the top to select a price range "
             + "and then click <br/> the arrows at the bottom to navigate between different"
             + " parts of the program.</html>", SwingConstants.CENTER);
         intro.setFont(new Font("Verdana", Font.BOLD, 17));
@@ -116,10 +116,19 @@ public class welcomePanel extends JPanel
         } else {
             leftButton.setEnabled(false);
             rightButton.setEnabled(false);
-            JOptionPane.showMessageDialog(mainWindow.frame, "Please select a valid price range", "Warning", JOptionPane.WARNING_MESSAGE);
+            showInvalidRangeMessage();
         }
     }
 
+    /**
+     * Shows an error message if the user has inputted an invalid price range.
+     */
+    private void showInvalidRangeMessage()
+    {
+        JOptionPane.showMessageDialog(null, "The price range you have selected is"
+        + " invalid. Please try again.");
+    }
+   
     private void displayMap() {
         mainWindow.map = new Map();
         mainWindow.frame.remove(mainWindow.welcome);

@@ -6,14 +6,23 @@ import java.io.*;
 import java.util.*;
 
 public class Map extends JPanel{
-    
+   
     private HashMap<String, ArrayList<Integer>> coordinates;
     private JPanel mapPanel; // the panel that holds the map.
     private JLabel mapLabel; // the map itself
+    private ArrayList<AirbnbListing> listing;
+    private welcomePanel welcome;
+    private static final String[] BOROUGHS  = {"Barking and Dagenham","Bromley","Ealing","Havering",
+            "Hillingdon","Harrow","Brent","Barnet", "Enfield", "Redbridge", "Sutton", "Lambeth", "Southwark",
+            "Greenwich","Lewisham","Hounslow", "Bexley","Kingston upon Thames", "Merton", "Wandsworth","Hammersmith and Fulham",
+            "Kensington and Chelsea","City of London","Westminster","Camden","Tower Hamlets", "Islington", "Hackney","Haringey",
+            "Newham","Croydon","Waltham Forest", "Richmond upon Thames"};
 
     public Map() {
         buildMapWindow();
         coordinates = new HashMap<>();
+        AirbnbDataLoader loader = new AirbnbDataLoader();
+        listing = loader.load();
     }
     private void buildMapWindow()
 
@@ -62,14 +71,14 @@ public class Map extends JPanel{
         // coordinates();
         // displayHouseIcons(WelcomeWindow.lowerPrice, WelcomeWindow.upperPrice);
     }
-    
+   
     private void goBackToWelcome() {
         mainWindow.frame.remove(mainWindow.map);
         mainWindow.frame.add(mainWindow.welcome);
         mainWindow.frame.revalidate();
         mainWindow.frame.repaint();
     }
-    
+   
     private void goToStatistics() {
         mainWindow.stats = new Statistics();
         mainWindow.frame.remove(mainWindow.map);
@@ -77,4 +86,41 @@ public class Map extends JPanel{
         mainWindow.frame.revalidate();
         mainWindow.frame.repaint();
     }
+   
+    private String whatColor(){
+        int numPropertiesInRange = 0;
+        for(AirbnbListing property : listing){
+           
+            if(welcome.getFromChoice() <= property.getPrice() && welcome.getToChoice() >= property.getPrice()){
+                numPropertiesInRange++;
+            }
+       
+        }
+       
+       
+        if(numPropertiesInRange < 100){
+            return "red";
+        }
+        else if(numPropertiesInRange >= 100 && numPropertiesInRange <= 1000 ){
+            return "yellow";
+        }
+        else{
+            return "green";
+        }
+       
+
+    }
+   
+    private void placeMarkers(){
+   
+   
+    }
+   
+    private void displayMarkers(){
+   
+   
+    }
+   
+
+   
 }

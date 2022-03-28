@@ -4,8 +4,8 @@ import javax.swing.*;
 /**
  * Creates the main window that the program is held on.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author: Sayaka, Janet, Apria and Jayden
+ * @version 22.03.2022
  */
 public class mainWindow
 {

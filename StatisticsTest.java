@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 /**
  * The test class StatisticsTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ *  @author: Sayaka, Janet, Apria and Jayden
+ * @version 22.03.2022
  */
 public class StatisticsTest extends Statistics
 {

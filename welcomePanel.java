@@ -4,8 +4,8 @@ import javax.swing.*;
 /**
  * The first panel that the user will see when they begin the program.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author: Sayaka, Janet, Apria and Jayden
+ * @version 22.03.2022
  */
 public class welcomePanel extends JPanel
 {
@@ -116,6 +116,7 @@ public class welcomePanel extends JPanel
         } else {
             leftButton.setEnabled(false);
             rightButton.setEnabled(false);
+            JOptionPane.showMessageDialog(mainWindow.frame, "Please select a valid price range", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }
 

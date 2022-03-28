@@ -5,6 +5,10 @@ import javax.imageio.*;
 import java.io.*;
 import java.util.*;
 
+/**
+ * @author: Sayaka, Janet, Apria and Jayden
+ * @version 22.03.2022
+ */
 public class Map extends JPanel{
    
     private HashMap<String, ArrayList<Integer>> coordinates;
@@ -97,7 +101,6 @@ public class Map extends JPanel{
        
         }
        
-       
         if(numPropertiesInRange < 100){
             return "red";
         }
@@ -107,7 +110,6 @@ public class Map extends JPanel{
         else{
             return "green";
         }
-       
 
     }
    

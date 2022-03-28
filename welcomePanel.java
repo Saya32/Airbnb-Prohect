@@ -15,7 +15,7 @@ public class welcomePanel extends JPanel
     private JComboBox fromBox, toBox;
     private String[] from, to;
     private int fromChoice, toChoice;
-    
+
     /**
      * Creates the welcome panel and shows it on screen.
      */
@@ -30,60 +30,60 @@ public class welcomePanel extends JPanel
     public void makeWelcomePanel()
     {
         // Makes the layout and panels.
-        
+
         setLayout(new BorderLayout());
-        
+
         northPanel = new JPanel(new GridLayout(0, 8));
         add(northPanel, BorderLayout.NORTH);
         northPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-        
+
         southPanel = new JPanel(new BorderLayout());
         add(southPanel, BorderLayout.SOUTH);
-        
+
         centrePanel = new JPanel();
         add(centrePanel, BorderLayout.CENTER);
-        
+
         fromPanel = new JPanel(new BorderLayout());
         northPanel.add(fromPanel);
-        
+
         toPanel = new JPanel(new BorderLayout());
         northPanel.add(toPanel);
-        
+
         // adds the welcome message.
         intro = new JLabel("<html>Welcome to the AirBnB property viewer.<br/>"
-        + "Use the drop-down menus at the top to select a price range " 
-        + "and then click <br/> the arrows at the bottom to navigate between different"
-        + " parts of the program.</html>", SwingConstants.CENTER);
+            + "Use the drop-down menus at the top to select a price range " 
+            + "and then click <br/> the arrows at the bottom to navigate between different"
+            + " parts of the program.</html>", SwingConstants.CENTER);
         intro.setFont(new Font("Verdana", Font.BOLD, 17));
         centrePanel.add(intro);
-        
+
         fromLabel = new JLabel("From: ");
         fromPanel.add(fromLabel, BorderLayout.WEST);
-        
+
         toLabel = new JLabel("To: ");
         toPanel.add(toLabel, BorderLayout.WEST);
-        
+
         // creates the drop-down menus with the list of prices.
         priceList();
         fromBox = new JComboBox<>(from);
         fromPanel.add(fromBox);
         toBox = new JComboBox<>(to);
         toPanel.add(toBox);
-        
+
         // adds the buttons at the bottom to navigate between panels.
         leftButton = new JButton("<");
         southPanel.add(leftButton, BorderLayout.WEST);
         rightButton = new JButton(">");
         southPanel.add(rightButton, BorderLayout.EAST);
-        
+
         // allows the user to click the buttons if the price range is valid.
         fromBox.addActionListener(e -> checkValid(fromBox, toBox));
         toBox.addActionListener(e -> checkValid(fromBox, toBox));
-        
+
         // add button functionality here to send the user to the next panels.
         rightButton.addActionListener(e-> displayMap());
     }
-    
+
     /**
      * Creates an array of prices to add to the drop-down menu by going up in
      * fifties.
@@ -100,7 +100,7 @@ public class welcomePanel extends JPanel
             value = value + 50;
         }
     }
-    
+
     /**
      * Checks if the price range the user has selected is valid. If so, allow
      * the user to use the navigation buttons.
@@ -119,6 +119,7 @@ public class welcomePanel extends JPanel
             showInvalidRangeMessage();
         }
     }
+
     
     /**
      * Shows an error message if the user has inputted an invalid price range.
@@ -129,6 +130,7 @@ public class welcomePanel extends JPanel
         + " invalid. Please try again.");
     }
     
+
     private void displayMap() {
         mainWindow.map = new Map();
         mainWindow.frame.remove(mainWindow.welcome);
@@ -136,5 +138,12 @@ public class welcomePanel extends JPanel
         mainWindow.frame.revalidate();
         mainWindow.frame.repaint();
     }
-    
+
+    public int getFromChoice(){
+        return fromChoice;
+    }
+
+    public int getToChoice(){
+        return toChoice;
+    }
 }

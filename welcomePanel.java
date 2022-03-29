@@ -136,11 +136,17 @@ public class welcomePanel extends JPanel
         mainWindow.frame.revalidate();
         mainWindow.frame.repaint();
     }
-
+    
+    /**
+     * @return the lower price selction range choice.
+     */
     public int getFromChoice(){
         return fromChoice;
     }
-
+   
+    /**
+     * @return the highest price selection range choice.
+     */
     public int getToChoice(){
         return toChoice;
     }

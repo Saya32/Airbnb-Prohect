@@ -6,6 +6,9 @@ import java.io.*;
 import java.util.*;
 
 /**
+ * This class displays a Map on the main panel and it should ideakky show markers of the houses 
+ * depending on the price range selected by the users.
+ * 
  * @author: Sayaka, Janet, Apria and Jayden
  * @version 22.03.2022
  */
@@ -22,12 +25,19 @@ public class Map extends JPanel{
             "Kensington and Chelsea","City of London","Westminster","Camden","Tower Hamlets", "Islington", "Hackney","Haringey",
             "Newham","Croydon","Waltham Forest", "Richmond upon Thames"};
 
+    /**
+     * Constructor for objects of class Map
+     */     
     public Map() {
         buildMapWindow();
         coordinates = new HashMap<>();
         AirbnbDataLoader loader = new AirbnbDataLoader();
         listing = loader.load();
     }
+    
+    /**
+     * Creates the actual map window
+     */
     private void buildMapWindow()
 
     {
@@ -76,6 +86,10 @@ public class Map extends JPanel{
         // displayHouseIcons(WelcomeWindow.lowerPrice, WelcomeWindow.upperPrice);
     }
    
+    
+    /**
+     * Takes us back to the welcome page.
+     */
     private void goBackToWelcome() {
         mainWindow.frame.remove(mainWindow.map);
         mainWindow.frame.add(mainWindow.welcome);
@@ -83,6 +97,9 @@ public class Map extends JPanel{
         mainWindow.frame.repaint();
     }
    
+    /**
+     * Takes us to the statisitcs page.
+     */
     private void goToStatistics() {
         mainWindow.stats = new Statistics();
         mainWindow.frame.remove(mainWindow.map);
@@ -90,7 +107,9 @@ public class Map extends JPanel{
         mainWindow.frame.revalidate();
         mainWindow.frame.repaint();
     }
-   
+    /**
+     * Decides what color marker should be displayed on the map.
+     */
     private String whatColor(){
         int numPropertiesInRange = 0;
         for(AirbnbListing property : listing){
@@ -113,11 +132,17 @@ public class Map extends JPanel{
 
     }
    
+    /**
+     * sets the postition of the markers on the map
+     */
     private void placeMarkers(){
    
    
     }
    
+    /**
+     * displays the markers corretly
+     */
     private void displayMarkers(){
    
    

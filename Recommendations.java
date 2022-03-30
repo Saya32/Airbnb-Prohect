@@ -20,7 +20,6 @@ public class Recommendations extends JPanel
      * Constructor for objects of class Recommendations
      */
     
-    
     public Recommendations()
     {
       makeRecommendationsPanel();
@@ -38,9 +37,6 @@ public class Recommendations extends JPanel
 
         centrePanel = new JPanel();
         add(centrePanel, BorderLayout.CENTER);
-        
-        
-        
         
         
         //initialises navigation bar buttons
@@ -94,9 +90,5 @@ public class Recommendations extends JPanel
         mainWindow.frame.revalidate();
         mainWindow.frame.repaint();
     }
-    
-
-
-    
     }
 

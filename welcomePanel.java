@@ -10,7 +10,7 @@ import javax.swing.*;
 public class welcomePanel extends JPanel
 {
     private JPanel northPanel, southPanel, centrePanel, fromPanel, toPanel;
-    private JButton leftButton, rightButton;
+    private JButton leftButton, rightButton, welcomeButton, mapButton, statisticsButton, recommendationsButton ;
     private JLabel intro, fromLabel, toLabel;
     private JComboBox fromBox, toBox;
     private String[] from, to;
@@ -37,7 +37,7 @@ public class welcomePanel extends JPanel
         add(northPanel, BorderLayout.NORTH);
         northPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 
-        southPanel = new JPanel(new BorderLayout());
+        southPanel = new JPanel(new FlowLayout());
         add(southPanel, BorderLayout.SOUTH);
 
         centrePanel = new JPanel();
@@ -70,11 +70,25 @@ public class welcomePanel extends JPanel
         toBox = new JComboBox<>(to);
         toPanel.add(toBox);
 
-        // adds the buttons at the bottom to navigate between panels.
+        //initialises navigation bar buttons
         leftButton = new JButton("<");
-        southPanel.add(leftButton, BorderLayout.WEST);
+        welcomeButton = new JButton("Welcome");
+        mapButton = new JButton("Map");
+        statisticsButton = new JButton("Statistics");
+        recommendationsButton = new JButton("Recommendations");
         rightButton = new JButton(">");
-        southPanel.add(rightButton, BorderLayout.EAST);
+        
+        //adds all navigation buttons to the panel
+        southPanel.add(leftButton, BorderLayout.CENTER);
+        southPanel.add(welcomeButton, BorderLayout.CENTER);
+        southPanel.add(mapButton, BorderLayout.CENTER);
+        southPanel.add(statisticsButton, BorderLayout.CENTER);
+        southPanel.add(recommendationsButton, BorderLayout.CENTER);
+        southPanel.add(rightButton, BorderLayout.CENTER);
+        
+        //sets current page navigation button to be green
+        welcomeButton.setBackground(Color.GREEN);
+        welcomeButton.setOpaque(true);
 
         // allows the user to click the buttons if the price range is valid.
         fromBox.addActionListener(e -> checkValid(fromBox, toBox));
@@ -82,6 +96,10 @@ public class welcomePanel extends JPanel
 
         // add button functionality here to send the user to the next panels.
         rightButton.addActionListener(e-> displayMap());
+        mapButton.addActionListener(e-> displayMap());
+        recommendationsButton.addActionListener(e-> displayRecs());
+        leftButton.addActionListener(e-> displayRecs());
+        statisticsButton.addActionListener(e-> displayStatistics());
     }
 
     /**
@@ -113,9 +131,15 @@ public class welcomePanel extends JPanel
             toChoice = Integer.parseInt(to.getSelectedItem().toString());
             leftButton.setEnabled(true);
             rightButton.setEnabled(true);
+            mapButton.setEnabled(true);
+            statisticsButton.setEnabled(true);
+            recommendationsButton.setEnabled(true);
         } else {
             leftButton.setEnabled(false);
             rightButton.setEnabled(false);
+            mapButton.setEnabled(false);
+            statisticsButton.setEnabled(false);
+            recommendationsButton.setEnabled(false);
             showInvalidRangeMessage();
         }
     }
@@ -129,12 +153,30 @@ public class welcomePanel extends JPanel
         + " invalid. Please try again.");
     }
    
+    
+    //Functions for switching maps after button presses
     private void displayMap() {
         mainWindow.map = new Map();
         mainWindow.frame.remove(mainWindow.welcome);
         mainWindow.frame.add(mainWindow.map);
         mainWindow.frame.revalidate();
         mainWindow.frame.repaint();
+    }
+    
+    private void displayStatistics() {
+        mainWindow.stats = new Statistics();
+        mainWindow.frame.remove(mainWindow.welcome);
+        mainWindow.frame.add(mainWindow.stats);
+        mainWindow.frame.revalidate();
+        mainWindow.frame.repaint();
+    }
+    
+    private void displayRecs() {
+        mainWindow.recs = new Recommendations();
+        mainWindow.frame.remove(mainWindow.welcome);
+        mainWindow.frame.add(mainWindow.recs);
+        mainWindow.frame.setVisible(true);
+        mainWindow.frame.pack();
     }
     
     /**

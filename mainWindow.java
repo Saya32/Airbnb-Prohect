@@ -16,6 +16,7 @@ public class mainWindow extends Application
     public static welcomePanel welcome;
     public static Map map;
     public static Statistics stats;
+    public static Recommendations recs;
 
     /**
      * Create the main window and show it on screen.

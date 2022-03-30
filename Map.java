@@ -17,6 +17,8 @@ public class Map extends JPanel{
     private HashMap<String, ArrayList<Integer>> coordinates;
     private JPanel mapPanel; // the panel that holds the map.
     private JLabel mapLabel; // the map itself
+    private JButton leftButton, rightButton, welcomeButton, mapButton, statisticsButton, recommendationsButton ; // navigation bar buttons
+    private JPanel southPanel; //border panels
     private ArrayList<AirbnbListing> listing;
     private welcomePanel welcome;
     private static final String[] BOROUGHS  = {"Barking and Dagenham","Bromley","Ealing","Havering",
@@ -46,6 +48,8 @@ public class Map extends JPanel{
         // Initialises all the panels.
         JPanel bottomPanel = new JPanel(new BorderLayout());
         mapPanel = new JPanel();
+        southPanel = new JPanel(new FlowLayout());
+        add(southPanel, BorderLayout.SOUTH);
 
 
         // Displays the map of London and adds it to the mapPanel.
@@ -64,49 +68,47 @@ public class Map extends JPanel{
         mapPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.black));
         bottomPanel.setBorder(BorderFactory.createMatteBorder(1,0,0,0,Color.black));
 
-        // Initialises the components.
-        JButton statisticsButton = new JButton("Statistics");
-        JButton previousButton = new JButton("Welcome");
-        previousButton.addActionListener(e-> goBackToWelcome());
-        statisticsButton.addActionListener(e-> goToStatistics());
-
+        //initialises navigation bar buttons
+        leftButton = new JButton("<");
+        welcomeButton = new JButton("Welcome");
+        mapButton = new JButton("Map");
+        statisticsButton = new JButton("Statistics");
+        recommendationsButton = new JButton("Recommendations");
+        rightButton = new JButton(">");
+        
         // Adds the components to the panels
-        bottomPanel.add(statisticsButton, BorderLayout.EAST);
-        bottomPanel.add(previousButton,BorderLayout.WEST);
+        //adds all navigation buttons to the panel
+        southPanel.add(leftButton, BorderLayout.CENTER);
+        southPanel.add(welcomeButton, BorderLayout.CENTER);
+        southPanel.add(mapButton, BorderLayout.CENTER);
+        southPanel.add(statisticsButton, BorderLayout.CENTER);
+        southPanel.add(recommendationsButton, BorderLayout.CENTER);
+        southPanel.add(rightButton, BorderLayout.CENTER);
 
         // Adds all the panels to the window
         add(mapPanel,BorderLayout.CENTER);
-        add(bottomPanel,BorderLayout.SOUTH);
 
         // Sets the color of the background of the panels.
         mapPanel.setBackground(Color.WHITE);
         bottomPanel.setBackground(Color.WHITE);
+        
+        //changes page upon specific button press
+        recommendationsButton.addActionListener(e-> displayRecs());
+        welcomeButton.addActionListener(e-> displayWelcome());
+        rightButton.addActionListener(e-> displayStatistics());
+        leftButton.addActionListener(e-> displayWelcome());
+        statisticsButton.addActionListener(e-> displayStatistics());
+        
+        //sets current page navigation button to be green
+        mapButton.setBackground(Color.GREEN);
+        mapButton.setOpaque(true);
 
         // coordinates();
         // displayHouseIcons(WelcomeWindow.lowerPrice, WelcomeWindow.upperPrice);
     }
    
     
-    /**
-     * Takes us back to the welcome page.
-     */
-    private void goBackToWelcome() {
-        mainWindow.frame.remove(mainWindow.map);
-        mainWindow.frame.add(mainWindow.welcome);
-        mainWindow.frame.revalidate();
-        mainWindow.frame.repaint();
-    }
-   
-    /**
-     * Takes us to the statisitcs page.
-     */
-    private void goToStatistics() {
-        mainWindow.stats = new Statistics();
-        mainWindow.frame.remove(mainWindow.map);
-        mainWindow.frame.add(mainWindow.stats);
-        mainWindow.frame.revalidate();
-        mainWindow.frame.repaint();
-    }
+    
     /**
      * Decides what color marker should be displayed on the map.
      */
@@ -130,6 +132,30 @@ public class Map extends JPanel{
             return "green";
         }
 
+    }
+    
+    private void displayWelcome() {
+        mainWindow.welcome = new welcomePanel();
+        mainWindow.frame.remove(mainWindow.map);
+        mainWindow.frame.add(mainWindow.welcome);
+        mainWindow.frame.revalidate();
+        mainWindow.frame.repaint();
+    }
+    
+    private void displayStatistics() {
+        mainWindow.stats = new Statistics();
+        mainWindow.frame.remove(mainWindow.map);
+        mainWindow.frame.add(mainWindow.stats);
+        mainWindow.frame.revalidate();
+        mainWindow.frame.repaint();
+    }
+    
+    private void displayRecs() {
+        mainWindow.recs = new Recommendations();
+        mainWindow.frame.remove(mainWindow.map);
+        mainWindow.frame.add(mainWindow.recs);
+        mainWindow.frame.setVisible(true);
+        mainWindow.frame.pack();
     }
    
     /**

@@ -4,8 +4,8 @@ import javax.swing.*;
 /**
  * The first panel that the user will see when they begin the program.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Sayaka, Janet, Apria and Jayden
+ * @version 30.03.2022
  */
 public class welcomePanel extends JPanel
 {

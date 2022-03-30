@@ -7,7 +7,7 @@ import javafx.stage.Stage;
  * Creates the main window that the program is held on.
  *
  * @author: Sayaka, Janet, Apria and Jayden
- * @version 22.03.2022
+ * @version 30.03.2022
  */
 public class mainWindow extends Application
 {

@@ -10,7 +10,7 @@ import java.util.*;
  * depending on the price range selected by the users.
  * 
  * @author: Sayaka, Janet, Apria and Jayden
- * @version 22.03.2022
+ * @version 30.03.2022
  */
 public class Map extends JPanel{
    
